@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public Text score2UI;
 
     private bool mRunning = false;
+
     private BallMovementManager mBallMovementManager;
 
     private int mScoreJugador1 = 0;
@@ -31,6 +32,21 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
+        /*
+        if (mRunning && Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            tituloUI.text = "Entr¨® Jugador 2";
+            mensajeUI.text = "Presione espacio para continuar";
+            mScoreJugador1 = 0;
+            mScoreJugador2 = 0;
+            score1UI.text = mScoreJugador1.ToString();
+            score2UI.text = mScoreJugador2.ToString();
+            tituloUI.gameObject.SetActive(true);
+            mensajeUI.gameObject.SetActive(true);
+            score1UI.gameObject.SetActive(true);
+            score2UI.gameObject.SetActive(true);
+            mRunning = false;
+        }*/
     }
 
     private void StartGame()
@@ -46,9 +62,6 @@ public class GameManager : MonoBehaviour
 
     public void OnGoalScoredDelegate(object sender, EventArgs e)
     {
-        Debug.Log("Goal");
-
-        // Actualizar los Score
         GoalScoredData data = e as GoalScoredData;
         if (data.jugador == "Paddle1")
         {
@@ -58,7 +71,7 @@ public class GameManager : MonoBehaviour
         {
             mScoreJugador2++;
         }
-
+        
         tituloUI.text = "GOL!";
         mensajeUI.text = "Presione espacio para continuar";
         score1UI.text = mScoreJugador1.ToString();
@@ -69,4 +82,22 @@ public class GameManager : MonoBehaviour
         score2UI.gameObject.SetActive(true);
         mRunning = false;
     }
+    /*
+    public void AItoPlayer2()
+    {
+        if (mRunning && Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            tituloUI.text = "Entr¨® Jugador 2";
+            mensajeUI.text = "Presione espacio para continuar";
+            mScoreJugador1 = 0;
+            mScoreJugador2 = 0;
+            score1UI.text = mScoreJugador1.ToString();
+            score2UI.text = mScoreJugador2.ToString();
+            tituloUI.gameObject.SetActive(true);
+            mensajeUI.gameObject.SetActive(true);
+            score1UI.gameObject.SetActive(true);
+            score2UI.gameObject.SetActive(true);
+            mRunning = false;
+        }
+    }*/
 }

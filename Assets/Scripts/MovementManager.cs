@@ -15,26 +15,31 @@ public class MovementManager : MonoBehaviour
         float movement;
         if (tipo == TipoJugador.JUGADOR1)
         {
-            // Leer el input del usuario
             movement = Input.GetAxis("Vertical");
         }
         else
         {
-            movement = Input.GetAxis("Mouse Y");
+            movement = Input.GetAxis("Vertical2");
         }
-        Vector3 actualPos = GetComponent<Transform>().position;
-        /*float newPosY = actualPos.y + (speed * movement * Time.deltaTime);
-        if (newPosY <= 7 && newPosY >= -7)
-        {
-            GetComponent<Transform>().position = new Vector3(
-                actualPos.x,
-                newPosY,
-                actualPos.z
-            );*/
-        GetComponent<Transform>().position = new Vector3(
+        Vector3 actualPos = transform.position;
+        transform.position = new Vector3(
             actualPos.x,
             Mathf.Clamp(actualPos.y + (speed * movement * Time.deltaTime), -7f, 7f),
             actualPos.z
         );
     }
+
+    /*public void StartGame()
+    {
+        if (tipo == TipoJugador.JUGADOR1)
+        {
+            transform.position = new Vector3(-14f, 0f, 0f);
+        }
+        else
+        {
+            transform.position = new Vector3(14f, 0f, 0f);
+        }
+    }*/
+    
+
 }

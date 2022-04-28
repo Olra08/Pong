@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 518773010}
   - component: {fileID: 518773009}
   - component: {fileID: 518773008}
+  - component: {fileID: 518773011}
   m_Layer: 0
   m_Name: Paddle2
   m_TagString: Paddle
@@ -602,13 +603,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518773005}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceab36dfe1196684c8d26dcfa32cc871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
   tipo: 1
+--- !u!114 &518773011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518773005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d02231173361d4f8d0b12bb3a24155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  ball: {fileID: 1019863491}
+  ballPos: {x: 0, y: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

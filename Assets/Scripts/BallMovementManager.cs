@@ -22,7 +22,6 @@ public class BallMovementManager : MonoBehaviour
     
     private void Start()
     {
-        //StartGame();
         mAudioSource = GetComponent<AudioSource>();
     }
 
@@ -37,7 +36,6 @@ public class BallMovementManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Paddle"))
         {
             mAudioSource.clip = paddleCollisionSound;
