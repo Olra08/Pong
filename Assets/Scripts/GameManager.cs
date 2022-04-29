@@ -32,21 +32,6 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
-        /*
-        if (mRunning && Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            tituloUI.text = "Entr¨® Jugador 2";
-            mensajeUI.text = "Presione espacio para continuar";
-            mScoreJugador1 = 0;
-            mScoreJugador2 = 0;
-            score1UI.text = mScoreJugador1.ToString();
-            score2UI.text = mScoreJugador2.ToString();
-            tituloUI.gameObject.SetActive(true);
-            mensajeUI.gameObject.SetActive(true);
-            score1UI.gameObject.SetActive(true);
-            score2UI.gameObject.SetActive(true);
-            mRunning = false;
-        }*/
     }
 
     private void StartGame()
@@ -82,22 +67,5 @@ public class GameManager : MonoBehaviour
         score2UI.gameObject.SetActive(true);
         mRunning = false;
     }
-    /*
-    public void AItoPlayer2()
-    {
-        if (mRunning && Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            tituloUI.text = "Entr¨® Jugador 2";
-            mensajeUI.text = "Presione espacio para continuar";
-            mScoreJugador1 = 0;
-            mScoreJugador2 = 0;
-            score1UI.text = mScoreJugador1.ToString();
-            score2UI.text = mScoreJugador2.ToString();
-            tituloUI.gameObject.SetActive(true);
-            mensajeUI.gameObject.SetActive(true);
-            score1UI.gameObject.SetActive(true);
-            score2UI.gameObject.SetActive(true);
-            mRunning = false;
-        }
-    }*/
+    
 }

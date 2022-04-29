@@ -12,7 +12,11 @@ public class BallMovementManager : MonoBehaviour
     public Vector3 initialSpeed;
     public AudioClip goalSound;
     public AudioClip paddleCollisionSound;
+    public AudioClip cpuSound;
+    public AudioClip p2Sound;
     public AudioClip wallCollisionSound;
+    public GameObject paddle1;
+    public GameObject paddle2;
 
     private Vector3 speed;
 
@@ -31,7 +35,8 @@ public class BallMovementManager : MonoBehaviour
         {
             transform.position += speed * Time.deltaTime;
         }
-        
+        PlayerSounds();
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,11 +45,23 @@ public class BallMovementManager : MonoBehaviour
         {
             mAudioSource.clip = paddleCollisionSound;
             mAudioSource.Play();
-            speed = new Vector3(
+            if (paddle1.transform.rotation.z != 0 || paddle2.transform.rotation.z != 0)
+            {
+                speed = new Vector3(
                 -speed.x,
-                UnityEngine.Random.Range(-20f, 20f),
+                UnityEngine.Random.Range(-44f, 44f),
                 0f
-            );
+                );
+            }
+            else
+            {
+                speed = new Vector3(
+                -speed.x,
+                UnityEngine.Random.Range(-25f, 25f),
+                0f
+                );
+            }
+
         }
         else if (collision.gameObject.CompareTag("Wall"))
         {
@@ -90,5 +107,19 @@ public class BallMovementManager : MonoBehaviour
     public void AddGoalScoreDelegate(EventHandler eventHandler)
     {
         mGoalScored += eventHandler;
+    }
+
+    public void PlayerSounds()
+    {
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            mAudioSource.clip = cpuSound;
+            mAudioSource.Play();
+        }
+        else if (Input.GetKeyUp(KeyCode.RightControl))
+        {
+            mAudioSource.clip = p2Sound;
+            mAudioSource.Play();
+        }
     }
 }
